@@ -1,0 +1,128 @@
+﻿<Window x:Class="MusicPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicPlayer"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="MainWindow"  Height="800" Width="1200" Style="{DynamicResource MainWindowStyle}" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Storyboard x:Key="SlowOpacity" >
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1.0" To="0.0"  Duration="0:0:5" />
+        </Storyboard>
+        <Storyboard x:Key="HighOpacity">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.0" To="1.0"  Duration="0:0:5" />
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="24*" />
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="55*" />
+            <RowDefinition Height="52*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="44*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="23*" />
+            <ColumnDefinition Width="73*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="48*" />
+        </Grid.ColumnDefinitions>
+
+        <Border  Opacity="1" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="25" Visibility="Visible">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#2e303f"/>
+                    <GradientStop Color="#0a0b10" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" ShadowDepth="5"  Color="Black"  />
+            </Border.Effect>
+        </Border>
+        <Border  Opacity="1" Grid.Column="0" Grid.Row="1" Grid.RowSpan="17" Grid.ColumnSpan="3"  >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#2e303f" Offset="0"/>
+                    <GradientStop Color="#0a0b10" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="0" ShadowDepth="0"  Color="Black"  />
+            </Border.Effect>
+        </Border>
+        <Border  Opacity="1" Grid.Column="4" Grid.Row="2" Grid.RowSpan="16" Grid.ColumnSpan="21" Margin="2.333,0.667,0,0" >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#2e303f" Offset="0"/>
+                    <GradientStop Color="#0a0b10" Offset="0.3"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="0" ShadowDepth="0"  Color="Black"  />
+            </Border.Effect>
+        </Border>
+
+        <Button x:Name="CloseApp" Content="✖" Grid.Column="24"  Style="{DynamicResource AppButtonsStyle}"  />
+        <Button x:Name="Maximize" Content="◻" Grid.Column="23" Style="{StaticResource MainButtonTemplatePlayPause}"   Visibility="Hidden"   />
+        <Button x:Name="AppDown" Content="_"  Grid.Column="23" FontSize="20"   Style="{DynamicResource AppButtonsStyle}"    />
+        <Button x:Name="Settings" Content="Войти"  Grid.Column="20" Grid.ColumnSpan="2" FontSize="20"   Visibility="Visible" Style="{DynamicResource AppButtonsStyle}"  />
+        
+        <Label Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Comic Sans MS" Foreground="White" Visibility="Hidden">MultiPlayer</Label>
+        <Image Stretch="Fill" Grid.Column="0" Grid.Row="0" Source="/Resources/Player/logo.png" />
+        
+        <ListBox x:Name="MainMenuListBox" Grid.RowSpan="5" Grid.ColumnSpan="3" Grid.Row="2" Background="Transparent" BorderThickness="0" Foreground="White" FontFamily="Arial Rounded MT Bold"  FontSize="16" SelectedIndex="0"  SelectionChanged="MainMenuListBox_SelectionChanged" >
+            <ListBoxItem  Margin="10,0,0,5" Style="{DynamicResource ListBoxItemStyleMenu}" IsEnabled="False">MENU
+            </ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5" Style="{DynamicResource ListBoxItemStyleMenu}" >Home</ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5" Style="{DynamicResource ListBoxItemStyleMenu}" >Player</ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5"  Style="{DynamicResource ListBoxItemStyleMenu}" >Radio</ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5"  Style="{DynamicResource ListBoxItemStyleMenu}" >Tv</ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5" Style="{DynamicResource ListBoxItemStyleMenu}" >Twitch</ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5" Style="{DynamicResource ListBoxItemStyleMenu}" IsEnabled="False"></ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5" Style="{DynamicResource ListBoxItemStyleMenu}" >Settings</ListBoxItem>
+            <ListBoxItem  Margin="20,0,0,5" Style="{DynamicResource ListBoxItemStyleMenu}" >Update</ListBoxItem>
+        </ListBox>
+
+        <Frame x:Name="MainFrame" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="21" Grid.RowSpan="16" NavigationUIVisibility="Hidden" ></Frame>
+
+    </Grid>
+
+</Window>

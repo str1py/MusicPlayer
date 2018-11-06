@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Channels>
+	<Channel1> 		
+		<title>Матч ТВ</title> 
+		<link>http://uiptv.do.am/1ufc/000000003/playlist.m3u8</link>	
+	</Channel1>
+	<Channel2> 
+		<title>ТНТ Music</title>	
+		<link>http://hls.tntmusic.cdnvideo.ru/tntmusic/tntmusic2.smil/playlist.m3u8</link>
+	</Channel2>
+</Channels>
